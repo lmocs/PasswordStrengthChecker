@@ -12,6 +12,7 @@ public class StrengthCheck {
             }
         }
 
+        // This block checks if the password has eight or more characters
         if (strArr.length >= 8) {
             System.out.println("[✓] Password has at least eight characters");
             strengthPoints++;
@@ -20,6 +21,7 @@ public class StrengthCheck {
             System.out.println("[x] Password does not have eight characters");
         }
 
+        // This block checks if the password has any upper or lowercase letters
         int lowerCaseCount = 0;
         int upperCaseCount = 0;
         for (int i = 0; i < strArr.length; i++) {
@@ -45,6 +47,7 @@ public class StrengthCheck {
             System.out.println("[x] Password does not contain a uppercase letter");
         }
 
+        // This block checks if the password has any numbers
         int numCount = 0;
         for (int i = 0; i < strArr.length; i++) {
             if (Character.isDigit(strArr[i])) {
@@ -59,13 +62,13 @@ public class StrengthCheck {
             System.out.println("[x] Password does not have a number");
         }
 
-
+        // This block checks if the password has any special characters
         String specialChars = "/*!@#$%^&*()\"{}_[]|\\?/<>,.";
         char[] specialCharsArr = specialChars.toCharArray();
         int specialCount = 0;
         for (int i = 0; i < specialCharsArr.length; i++) {
             for (int j = 0; j < strArr.length; j++) {
-                if (specialCharsArr[i] == Character.valueOf(strArr[j])) {
+                if (specialCharsArr[i] == strArr[j]) {
                     specialCount++;
                 }
             }
@@ -78,6 +81,8 @@ public class StrengthCheck {
             System.out.println("[x] Password does not have a special character");
         }
 
+        // This switch statement evaluates and determines the strength
+        // of the password based on the number of checked criteria
         switch (strengthPoints){
             case 1:
                 System.out.println("Your password strength is: Very Weak (1/5)");
@@ -96,5 +101,4 @@ public class StrengthCheck {
                 break;
         }
     }
-
 }
